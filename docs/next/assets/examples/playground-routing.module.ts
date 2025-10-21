@@ -1,0 +1,19 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('./with-layout/with-layout.module').then((m) => m.WithLayoutModule),
+  },
+  {
+    path: '',
+    loadChildren: () => import('./without-layout/without-layout.module').then((m) => m.WithoutLayoutModule),
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class PlaygroundRoutingModule {}
